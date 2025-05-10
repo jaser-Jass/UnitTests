@@ -2,6 +2,8 @@ package org.example;
 
 import org.example.Shop.Product;
 import org.example.Shop.Shop;
+import org.example.coverage.SomeService;
+import org.example.tdd.User;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -9,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
+
 
 import static org.assertj.core.api.Assertions.*; // Импортируем классы библиотеки assertJ
 import static org.example.Shop.Shop.getMostExpensiveProduct;
@@ -18,6 +21,18 @@ import static org.example.calculator.Calculator.calculatingDiscount;
 public class Main {
     public static void main(String[] args) {
 
+         User user = new User("name1", "password", false);
+         System.out.println("User: " + user);
+        SomeService someService = new SomeService();
+        System.out.println("Число чётное :" + someService.evenOddNumber(-1));
+        System.out.println("Число попадает в интервал от 25 до 100: " + someService.numberInInterval(3));
+        String fizzbuzz = someService.fizzBuzz(3);
+        System.out.println("metod FizzBuzz: " + fizzbuzz);
+
+        System.out.println(someService.firstLast6(new int[]{6, 3, 5, 3}));
+        System.out.println("Сумма покупки со скидкой: " + someService.calculatingDiscount(200, 10));
+        System.out.println();
+        System.out.println("Метод someService: " + someService.luckySum(13, 10, 13));
 
         Shop shop = new Shop();
         List<Product> productList = new ArrayList<>();
@@ -244,5 +259,8 @@ public class Main {
         public void setHuman(boolean human) {
             isHuman = human;
         }
-    }
+
+
+
+ }
 }
