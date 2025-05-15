@@ -3,6 +3,8 @@ package org.example;
 import org.example.Shop.Product;
 import org.example.Shop.Shop;
 import org.example.coverage.SomeService;
+import org.example.five.number.MaxNumberModule;
+import org.example.five.number.RandomNumberModule;
 import org.example.fourth.book.Book;
 import org.example.fourth.book.BookRepository;
 import org.example.fourth.book.BookService;
@@ -32,6 +34,24 @@ import static org.example.calculator.Calculator.calculatingDiscount;
 
 public class Main {
     public static void main(String[] args) {
+
+        /**
+         * Создайте два модуля. Первый модуль генерирует список случайных чисел. Второй модуль находит
+         * максимальное число в этом списке.
+         */
+        RandomNumberModule randomNumberModule = new RandomNumberModule();
+        int arraySize = 10;
+
+        int[] numbers = randomNumberModule.generateRandomNumbers(arraySize);
+
+        System.out.println("Сгенерированные случайные числа:");
+        for (int number : numbers) {
+            System.out.print(number + " ");
+        }
+        System.out.println();
+        MaxNumberModule maxNumberModule = new MaxNumberModule();
+        int maxNumber = maxNumberModule.findMaxNumber(numbers);
+                System.out.println("Максимальное число : " + maxNumber);
 
         /**
          * У вас есть класс BookService, который использует интерфейс BookRepository для получения информации о книгах из базы данных.
